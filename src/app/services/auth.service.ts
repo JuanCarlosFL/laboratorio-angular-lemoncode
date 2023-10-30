@@ -10,11 +10,11 @@ export class AuthService {
   constructor() { }
 
   login(username: string, password: string): boolean {
-    console.log(username, password)
-    if (username === 'admin' && password === '1234') {
+    if (username === 'master@lemoncode.net' && password === '12345678') {
       this.loggedIn = true;
       this.username = username;
-      // Guarda el estado de autenticación en el localstorage aquí si deseas el reto.
+      localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('username', username);
       return true;
     }
     return false;
@@ -23,14 +23,15 @@ export class AuthService {
   logout(): void {
     this.loggedIn = false;
     this.username = '';
-    // Elimina el estado de autenticación del localstorage si implementaste el reto.
+    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('username');
   }
 
   isLogged(): boolean {
-    return this.loggedIn;
+    return Boolean(localStorage.getItem('loggedIn'));
   }
 
   getUsername(): string {
-    return this.username;
+    return localStorage.getItem('username') ?? 'No hay usuario logueado';
   }
 }

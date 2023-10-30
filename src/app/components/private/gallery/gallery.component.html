@@ -1,1 +1,32 @@
-<p>gallery works!</p>
+<div class="galeria">
+    <div class="imagen-seleccionada">
+        <img 
+            [src]="selectedImage.src" 
+            [alt]="selectedImage.title" 
+            width="500" 
+            rotate
+            [step]="20"
+            [ngStyle]="{'transform': 'scale(' + (currentScale / 100) + ') rotate(' + selectedImage.rotation + 'deg)'}"
+            [ngClass]="{'increase-size': increase, 'decrease-size': decrease}"
+        />
+    </div>
+    <div class="listado-imagenes">
+        <img
+            *ngFor="let image of images"
+            [src]="image.src"
+            [alt]="image.title"
+            (click)="selectImage(image)"
+            [class.selected]="image === selectedImage"
+            width="100"
+        >
+    </div>
+    <div class="botonera">
+        <button mat-raised-button (click)="previousImage()" [disabled]="images.indexOf(selectedImage) === 0 || isPlaying">Anterior</button>
+        <button mat-raised-button (click)="nextImage()" [disabled]="images.indexOf(selectedImage) === images.length - 1 || isPlaying">Siguiente</button>
+        <button mat-raised-button (click)="increaseSize()" [disabled]="isPlaying">Aumentar</button>
+        <button mat-raised-button (click)="decreaseSize()" [disabled]="isPlaying">Disminuir</button>
+        <button mat-raised-button (click)="play()" *ngIf="!isPlaying">Play</button>
+        <button mat-raised-button (click)="stop()" *ngIf="isPlaying" class="stop-button">Stop</button>
+    </div>
+    <p>Haz click en la imagen para rotar a la derecha y Shift + click para rotar a la izquierda</p>
+</div>

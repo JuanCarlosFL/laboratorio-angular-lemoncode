@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="logo">
+    <p><img [src]="logo" alt="logo de la empresa" width="80" /> </p>
+    <p class="user">Usuario: {{ getUsername() }}</p>
+  </div>
+    <nav>
+      <ul>
+        <li><a routerLinkActive="active" routerLink="/dashboard">Dashboard</a></li>
+        <li><a routerLinkActive="active" routerLink="/gallery">Galería</a></li>
+        <li><a routerLinkActive="active" routerLink="/crud">CRUD</a></li>
+        <li><a routerLinkActive="active" routerLink="/profile">Profile</a></li>
+        <li><button class="logout-button" (click)="logout()">Salir</button></li>
+      </ul>
+    </nav>
+  </header>
+  

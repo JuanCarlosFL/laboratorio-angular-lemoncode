@@ -1,10 +1,6 @@
 <div>
   <public-header *ngIf="!isLogged()"></public-header>
   <private-header *ngIf="isLogged()"></private-header>
-  <div *ngIf="isLogged()">
-    <button (click)="logout()">Salir</button>
-    <span>{{ getUsername() }}</span>
-  </div>
   <router-outlet></router-outlet>
   <footer></footer>
 </div>

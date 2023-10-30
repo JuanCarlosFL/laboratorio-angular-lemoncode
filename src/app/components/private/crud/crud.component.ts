@@ -3,13 +3,15 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-crud',
+  templateUrl: './crud.component.html',
+  styleUrls: ['./crud.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class CrudComponent implements OnInit {
 
   constructor(private auth: AuthService, private router: Router) { }
+
+  underConstructionImage = 'assets/under-construction.jpg'
 
   ngOnInit(): void {
     if (!this.auth.isLogged()) {
@@ -17,7 +19,4 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  getUsername(): string {
-    return this.auth.getUsername();
-  }
 }

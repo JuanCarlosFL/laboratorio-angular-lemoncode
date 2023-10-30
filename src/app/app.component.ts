@@ -13,11 +13,4 @@ export class AppComponent {
     return this.authService.isLogged();
   }
 
-  getUsername(): string {
-    return this.authService.getUsername();
-  }
-
-  logout(): void {
-    this.authService.logout();
-  }
 }

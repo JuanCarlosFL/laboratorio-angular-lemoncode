@@ -15,6 +15,7 @@
             padding: 0;
             margin: 0;
             display: flex;
+            align-items: center;
             li {
                 margin-right: 20px;
                 a {
@@ -22,8 +23,8 @@
                     color: #fff;
                     font-size: 16px;
                     transition: color 0.3s;
-                    &:hover {
-                        color: #DADA00; // Color amarillo al hacer hover
+                        &:hover {
+                        color: #DADA00;
                         &::before {
                             content: '{ ';
                         }
@@ -35,8 +36,32 @@
             }
         }
     }
+    .logout-button {
+        background-color: #DADA00;
+        color: #333;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        &:hover {
+            background-color: #ffcc00;
+        }
+    }
+}
+p {
+    color: #DADA00;
 }
 
-h2 {
-    color: #DADA00;
+.active {
+    color: #DADA00 !important;
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+}
+.user {
+    padding-left: 1rem;
 }

@@ -3,21 +3,21 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
   constructor(private auth: AuthService, private router: Router) { }
 
+  photoPath = 'assets/photo.jpeg';
+  logoLinkedin = 'assets/linkedin.jpg';
+  
   ngOnInit(): void {
     if (!this.auth.isLogged()) {
       this.router.navigate(['/home'])
     }
   }
 
-  getUsername(): string {
-    return this.auth.getUsername();
-  }
 }

@@ -1,16 +1,25 @@
 <div class="header-container">
-    <p><b>User:</b> admin</p>
-    <p><b>Password:</b> 1234</p>
+    <p><b>User:</b> master@lemoncode.net</p>
+    <p><b>Password:</b> 12345678</p>
 </div>
 
 <div class="login-container">
     <div class="login-form">
         <h2>Login</h2>
+        <p *ngIf="passwordError" class="password-error">Usuario o contraseña Incorrecto</p>
         <form>
             <label for="username">Username:</label>
-            <input type="text" [(ngModel)]="username" name="username" minlength="6" email required>
+            <input type="text" [(ngModel)]="username" name="username" minlength="6" email required #user="ngModel">
+            <div *ngIf="user.invalid && user.touched" class="error">
+                <div *ngIf="user.errors!['email']">El username debe ser un email válido</div>
+                <div *ngIf="user.errors!['required']">El username es obligatorio</div>
+                <div *ngIf="user.errors!['minlength']">El nombre debe tener {{ user.errors!['minlength'].requiredLength }} caracteres mínimo. Tiene sólamente {{ user.errors!['minlength'].actualLength }}</div>
+            </div>
             <label for="password">Password:</label>
-            <input type="password" [(ngModel)]="password" name="password"  minlength="6" required>
+            <input type="password" [(ngModel)]="password" name="password" required #pass="ngModel">
+            <div *ngIf="pass.invalid && pass.touched" class="error">
+                <div *ngIf="pass.errors!['required']">El password es obligatorio</div>
+            </div>
             <button type="button" (click)="login()">Iniciar sesión</button>
         </form>
     </div>
