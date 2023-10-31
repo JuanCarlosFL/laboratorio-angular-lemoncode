@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .header {
+   
+  }
+  
+  .main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    background-color: #DADA00;
+  }
+
+  .router-content {
+   height: 100%;
+  }

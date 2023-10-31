@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   passwordError: boolean = false;
+  loading = false;
+  spinner = 'assets/loading.webp';
 
   constructor(
     private authService: AuthService, 
@@ -21,10 +23,23 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    if (this.authService.login(this.username, this.password)) {
-      this.router.navigate(['/dashboard'])
-    } else {
-      this.passwordError = true;
-    }
+    this.loading = true;
+
+    this.authService.login(this.username, this.password).subscribe({
+      next: (loggedIn) => {
+        if(loggedIn) {
+          this.loading = false
+          this.router.navigate(['/dashboard'])
+        } else {
+          this.passwordError = true;
+        }
+      },
+      error: (error) => {
+        console.error('Error al realizar la petición', error);
+      },
+      complete: () => {
+        this.loading = false;
+      }
+    });
   }
 }

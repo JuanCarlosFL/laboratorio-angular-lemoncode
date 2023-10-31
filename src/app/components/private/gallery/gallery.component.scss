@@ -46,12 +46,10 @@
     background-color: #ccc;
   }
 
-
-  /* CSS classes for increasing and decreasing size */
 .increase-size {
-  transform: scale(1.1); /* Increase size by 10% */
+  transform: scale(1.1);
 }
 
 .decrease-size {
-  transform: scale(0.9); /* Decrease size by 10% */
+  transform: scale(0.9);
 }

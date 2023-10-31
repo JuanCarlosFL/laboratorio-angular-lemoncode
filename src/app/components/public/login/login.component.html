@@ -6,7 +6,10 @@
 <div class="login-container">
     <div class="login-form">
         <h2>Login</h2>
-        <p *ngIf="passwordError" class="password-error">Usuario o contraseña Incorrecto</p>
+        <div *ngIf="loading" class="spinner">
+            <img [src]="spinner" alt="spinner" width="30">
+        </div>
+        <p *ngIf="passwordError && !loading" class="password-error">Usuario o contraseña Incorrecto</p>
         <form>
             <label for="username">Username:</label>
             <input type="text" [(ngModel)]="username" name="username" minlength="6" email required #user="ngModel">

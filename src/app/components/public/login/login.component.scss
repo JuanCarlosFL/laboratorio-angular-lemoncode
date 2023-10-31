@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    flex: 1;
     background-color: #DADA00;
 
     .login-form {
@@ -52,7 +52,6 @@
 }
 
 .header-container {
-    background-color: #ffcc00;
     padding: 10px;
     text-align: center;
 
@@ -77,4 +76,9 @@
 .password-error {
     color: red;
     text-align: center;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
 }

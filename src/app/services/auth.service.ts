@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, delay, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +10,16 @@ export class AuthService {
 
   constructor() { }
 
-  login(username: string, password: string): boolean {
-    if (username === 'master@lemoncode.net' && password === '12345678') {
+  login(username: string, password: string ): Observable<boolean> {
+    if(username === 'master@lemoncode.net' && password === '12345678') {
       this.loggedIn = true;
       this.username = username;
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('username', username);
-      return true;
+      return of(true).pipe(delay(2000));
+    } else {
+      return of(false).pipe(delay(2000));
     }
-    return false;
   }
 
   logout(): void {

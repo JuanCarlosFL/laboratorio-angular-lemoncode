@@ -7,9 +7,7 @@ import { PublicHeaderComponent } from './components/layout/public-header/public-
 import { HomeComponent } from './components/public/home/home.component';
 import { LoginComponent } from './components/public/login/login.component';
 import { AboutComponent } from './components/public/about/about.component';
-import { PublicMenuComponent } from './components/layout/public-menu/public-menu.component';
 import { PrivateHeaderComponent } from './components/layout/private-header/private-header.component';
-import { PrivateMenuComponent } from './components/layout/private-menu/private-menu.component';
 import { DashboardComponent } from './components/private/dashboard/dashboard.component';
 import { GalleryComponent } from './components/private/gallery/gallery.component';
 import { MatMenuModule, MatButtonModule } from '@angular/material'; 
@@ -28,9 +26,7 @@ import { RotateDirective } from './directives/rotate.directive';
     HomeComponent,
     LoginComponent,
     AboutComponent,
-    PublicMenuComponent,
     PrivateHeaderComponent,
-    PrivateMenuComponent,
     DashboardComponent,
     GalleryComponent,
     FooterComponent,
